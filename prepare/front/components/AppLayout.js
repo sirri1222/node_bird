@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import Link from 'next/link'
 const AppLayout = ({children})=>{
     return <div>
         <div>
