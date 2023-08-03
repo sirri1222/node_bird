@@ -11,4 +11,6 @@
   "author": "hyunji son",
   "license": "ISC",
   "dependencies": {
- 
+    "next": "^9.5.5"
+  }
+}
