@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next",
-    "build":"next build"
+    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider next -p 3060",
+    "build": "next build"
   },
   "author": "hyunji son",
   "license": "ISC",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "next": "^9.5.5"
   }
 }
