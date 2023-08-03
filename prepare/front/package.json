@@ -12,5 +12,8 @@
   "dependencies": {
     "cross-env": "^7.0.3",
     "next": "^9.5.5"
+  },
+  "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.6.0"
   }
 }

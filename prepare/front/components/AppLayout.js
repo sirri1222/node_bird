@@ -1,14 +1,15 @@
+import PropTypes from 'prop-types';
 const AppLayout = ({children})=>{
     return <div>
         <div>
-            <Link href="/">노드버드</Link>
-            <Link href="/profile">프로필</Link>
-            <Link href="/signup">회원가입</Link>
+            <Link href="/"><a>노드버드</a></Link>
+            <Link href="/profile"><a>프로필</a></Link>
+            <Link href="/signup"><a>회원가입</a></Link>
         </div>
         {children}
     </div>
 };
-AppLayout.propsTypes = {
-    children: propsTypes.node.isRequired,
-}
+AppLayout.PropTypes = {
+    children: PropTypes.node.isRequired,
+};
 export default AppLayout;
