@@ -10,9 +10,12 @@
   "author": "hyunji son",
   "license": "ISC",
   "dependencies": {
+    "@ant-design/icons": "^5.2.4",
+    "antd": "^5.8.1",
     "cross-env": "^7.0.3",
     "next": "^9.5.5",
-    "prop-types": "^15.8.1"
+    "prop-types": "^15.8.1",
+    "styled-components": "^6.0.6"
   },
   "devDependencies": {
     "eslint": "^8.46.0",
