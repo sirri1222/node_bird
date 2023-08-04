@@ -7,19 +7,23 @@ import styled from 'styled-components'
 
 const ButtonWrapper = styled.div`
 margin-top : 10px `
-const LoginForm = ()=>{
+const LoginForm = ({setisLoggedIn})=>{
     const [id, setId] =useState('')
     const [password, setPassword] =useState('')
     // 컴포넌트에 PROPS로 넘기는함수는 usecallback 사용을 해라 최적화
     const onChangeaId =useCallback((e)=>{ 
         setId(e.target.value);
-    })
+    },[])
     const onChangePassword =useCallback((e)=>{ 
         setPassword(e.target.value);
-    })
+    },[])
+    const onSubmitForm = useCallback(()=>{
+        console.log(id, password);
+        setisLoggedIn(true);
+
+    },[id, password])
     
-    
-    return <Form>
+    return <Form onFinish={onSubmitForm}>
         <div>
             <label htmlFor="user-id">아이디</label>
         <br />
