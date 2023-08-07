@@ -1,4 +1,4 @@
-import { Checkbox, Form, Input } from "antd";
+import { Button, Checkbox, Form, Input } from "antd";
 import AppLayout from "../components/AppLayout";
 import Head from "next/head";
 import useinput from "../hooks/useinput";
@@ -11,14 +11,18 @@ const Signup = () => {
   const [passwordCheck, onPasswordCheck] = useState("");
   const [passwordError, onPasswordError] = useState(false);
 
-  const [Nickname, onChangeNickname] = useinput("");
+  const [nickname, onChangeNickname] = useinput("");
   const onChangePasswordCheck = useCallback(() => {});
   const onSubmit = useCallback(
     (e) => {
-      onPasswordCheck(e.target.value);
-      onPasswordError(e.target.value !== password);
+      if (password !== passwordCheck) {
+        return onPasswordError(true);
+        if (!term) {
+          return setTermError(true);
+        }
+      }
     },
-    [password]
+    [password, passwordCheck, term]
   );
   const [term, setTerm] = useState("");
   const [termError, setTermError] = useState(false);
@@ -62,6 +66,24 @@ const Signup = () => {
               required
               onChange={onChangePassword}
             ></Input>
+          </div>
+          <div>
+            <label htmlFor="user-passwordcheck">비밀번호확인</label>
+            <br />
+            <Input
+              name="user-passwordcheck"
+              value={passwordCheck}
+              required
+              onChange={onChangePasswordCheck}
+            ></Input>
+          </div>
+          <div>
+            <Checkbox name="user-term" checked={term} onChange={onChangeTerm}> 
+            개인정보 수집에 동의합니다</Checkbox>
+            {termError && <ErrorMessage>약관에 동의하셔야 합니다.</ErrorMessage>}
+          </div>
+          <div style={{marginTop: 10}}>
+            <Button type="primary" htmlType="submit"></Button>
           </div>
         </Form>
       </AppLayout>
