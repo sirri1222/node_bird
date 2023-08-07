@@ -14,9 +14,11 @@
     "antd": "^4.2.5",
     "cross-env": "^7.0.3",
     "next": "^9.5.5",
+    "next-redux-wrapper": "^8.1.0",
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "redux": "^4.2.1",
     "styled-components": "^6.0.6"
   },
   "devDependencies": {
