@@ -1,22 +1,31 @@
-import { Form, Input } from "antd";
+import { Checkbox, Form, Input } from "antd";
 import AppLayout from "../components/AppLayout";
 import Head from "next/head";
+import useinput from "../hooks/useinput";
+import { useCallback, useState } from "react";
 
 const Signup = () => {
+  const [id, onChangeId] = useinput("");
 
-    const [id, setId]=useState('')
-    const onChangeId = useCallback((e)=>{
-        setId(e.target.value)
-    },[])
-    const [password, setPassword]=useState('')
-    const onChangePassword = useCallback((e)=>{
-        setPassword(e.target.value)
-    },[])
-    const [Nickname, setNickname]=useState('')
-    const onChangeNickname = useCallback((e)=>{
-        setNickname(e.target.value)
-    },[])
-  const onSubmit = useCallback(() => {}, []);
+  const [password, onChangePassword] = useinput("");
+  const [passwordCheck, onPasswordCheck] = useState("");
+  const [passwordError, onPasswordError] = useState(false);
+
+  const [Nickname, onChangeNickname] = useinput("");
+  const onChangePasswordCheck = useCallback(() => {});
+  const onSubmit = useCallback(
+    (e) => {
+      onPasswordCheck(e.target.value);
+      onPasswordError(e.target.value !== password);
+    },
+    [password]
+  );
+  const [term, setTerm] = useState("");
+  const [termError, setTermError] = useState(false);
+  const onChangeTerm = useCallback((e) => {
+    setTerm(e.target.checked);
+    setTermError(false);
+  });
   return (
     <div>
       <AppLayout>

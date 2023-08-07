@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Col, Input, Menu, Row } from 'antd';
 import UserProfile from './UserProfile';
 import LoginForm from './LoginForm';
+import { useState } from 'react';
 
 const AppLayout = ({children})=>{
     const [isLoggedIn, setisLoggedIn]=useState(false)
