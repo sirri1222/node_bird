@@ -4,7 +4,6 @@ import { useDispatch } from "react-redux";
 import { logoutAction } from "../reducer";
 
 const UserProfile = () => {
-
   const dispatch = useDispatch();
   const onLogOut = useCallback(() => {
 dispatch(logoutAction());

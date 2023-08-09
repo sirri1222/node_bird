@@ -6,7 +6,7 @@ import LoginForm from "./LoginForm";
 import { useSelector } from "react-redux";
 
 const AppLayout = ({ children }) => {
-  const isLoggedIn = useSelector((state) => {state.user});
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
   return (
     <div>
