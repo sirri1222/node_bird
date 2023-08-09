@@ -1,22 +1,21 @@
-import { Provider, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import AppLayout from "../components/AppLayout";
+import PostCard from "../components/PostCard";
+import PostForm from "../components/PostForm";
 
 const Home = () => {
   const { isLoggedIn } = useSelector((state) => state.user);
   const { mainPosts } = useSelector((state) => state.post);
   return (
-    <Provider store={store}>
-      <AppLayout>
-        <div>
-          {isLoggedIn && <PostForm />}
-          {mainPosts.map((post) => (
-            <PostCard key={post.id} post={post} />
-          ))}
-        </div>
-      </AppLayout>
-    </Provider>
+    <AppLayout>
+      <div>
+        {isLoggedIn && <PostForm />}
+        {mainPosts.map((post) => (
+          <PostCard key={post.id} post={post} />
+        ))}
+      </div>
+    </AppLayout>
   );
 };
 
-document.getElementById("root");
 export default Home;
