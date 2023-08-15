@@ -1,14 +1,22 @@
+const dummyUser = {
+  id: 1,
+  nickname: "sirri",
+  Posts: [],
+  Followings: [],
+  Followers: [],
+};
 export const initialState = {
-  isLoggedIn: false,
-  user: null,
-  signUpData: {},
-  loginDate: {},
+  user: {
+    isLoggedIn: false,
+    user: null,
+    signUpData: {},
+    loginDate: {},
+  },
 };
 
-export const loginAction = (data) => {
+export const loginAction = () => {
   return {
     type: "LOG_IN",
-    data,
   };
 };
 
@@ -19,7 +27,6 @@ export const logoutAction = () => {
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-   
     case "LOG_IN":
       return {
         ...state,

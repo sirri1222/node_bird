@@ -13,6 +13,8 @@ const PostCard = () => {
 
       <Buttons></Buttons>
     </Card>
+    <CommentForm />
+    <Comments />
   </div>;
 };
 
