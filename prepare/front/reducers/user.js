@@ -8,7 +8,7 @@ const dummyUser = {
 export const initialState = {
   user: {
     isLoggedIn: false,
-    user: null,
+    me: null,
     signUpData: {},
     loginDate: {},
   },
@@ -32,7 +32,7 @@ const reducer = (state = initialState, action) => {
         ...state,
 
         isLoggedIn: true,
-        user: action.data,
+        me: action.data,
       };
 
     case "LOG_OUT":
@@ -40,7 +40,7 @@ const reducer = (state = initialState, action) => {
         ...state,
 
         isLoggedIn: false,
-        user: null,
+        me: null,
       };
   }
 };
