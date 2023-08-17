@@ -1,4 +1,4 @@
-import { Button, Card } from "antd";
+import { Button, Card, Popover } from "antd";
 
 const PostCard = () => {
   return;
@@ -6,7 +6,15 @@ const PostCard = () => {
     <Card 
     cover={post.Images[0]
     && <PostImages images={post.Image} />
-   } >
+   } 
+   actions={
+    [<RetweetOutlined />
+  ,
+<HeartOutlined />,
+<MessageOutlined />,
+<Popover />
+]
+   }>
       <Image />
 
       <Content />
