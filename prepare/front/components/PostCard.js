@@ -22,7 +22,7 @@ const PostCard = () => {
         <Popover
           key="more"
           content={
-            <ButtonGroup>
+            <Button.Group>
               {id && post.User.id === id ? (
                 <>
                   <Button>수정</Button>
@@ -31,7 +31,7 @@ const PostCard = () => {
               ) : (
                 <Button>신고</Button>
               )}
-            </ButtonGroup>
+            </Button.Group>
           }
         >
           <EilipsisOutlined />
