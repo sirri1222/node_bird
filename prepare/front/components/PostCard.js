@@ -1,4 +1,4 @@
-import { Button, Card, Popover } from "antd";
+import { Avatar, Button, Card, Comment, List, Popover } from "antd";
 import {
   RetweetOutlined,
   HeartTwoTone,
@@ -62,11 +62,27 @@ const onToggleComment = useCallback(()=>{
 
     {commentFormOpened && (
       <div>
-      댓글부분
+     <CommentForm post={post} /> 
+     <List
+     header={
+     ` ${post.Comments.length}개의 댓글`}
+     itemLayout="horizontal"
+     dataSource={post.Comments}
+renderItem={(item)=>(
+  <li> <Comment
+  author={item.User.nickname}
+
+  avatar={<Avatar>{item.User.nickname[0]}</Avatar>}
+  
+  content={item.content}>
+    </Comment></li>
+)}
+></List>
+    
       </div>
-    )}
-    <CommentForm />
-    <Comments />
+   
+     )}
+   
   </div>;
 };
 
