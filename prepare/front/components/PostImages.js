@@ -13,6 +13,7 @@ const PostImages = ({ images }) => {
           alt={images[0].src}
           onClick={onZoom}
         ></img>
+        {showImageZoom && <ImageZoom images={images} onClose={} />}
       </>
     );
   }

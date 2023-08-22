@@ -4,34 +4,37 @@ import {
   HeartTwoTone,
   HeartOutlined,
   MessageOutlined,
-  
 } from "@ant-design/icons";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 import ButtonGroup from "antd/lib/button/button-group";
 import { useCallback, useState } from "react";
-const PostCard = ({post}) => {
+const PostCard = ({ post }) => {
   // 옵셔널 체이닝 연산자
   const id = useSelector((state) => state.user?.me?.id);
-const [liked, setLiked] =useState(false)
-const [commentFormOpened,setCommentFormOpened] = useState(false)
-const onToggleLiked = useCallback(()=>{
-  setLiked((prev)=> !prev);
-},[])
-const onToggleComment = useCallback(()=>{
-  setCommentFormOpened((prev)=> !prev)
-
-},[])
+  const [liked, setLiked] = useState(false);
+  const [commentFormOpened, setCommentFormOpened] = useState(false);
+  const onToggleLiked = useCallback(() => {
+    setLiked((prev) => !prev);
+  }, []);
+  const onToggleComment = useCallback(() => {
+    setCommentFormOpened((prev) => !prev);
+  }, []);
   return;
-  <div style={{marginBottom: 20}}>
+  <div style={{ marginBottom: 20 }}>
     <Card
       cover={post.Images[0] && <PostImages images={post.Image} />}
       actions={[
         <RetweetOutlined key="retweet" />,
-       liked ?
-         <HeartTwoTone key="heartred" twoToneColor={eb2f96} onClick={onToggleLiked} />
-         :
-         <HeartOutlined key="heart" />,
+        liked ? (
+          <HeartTwoTone
+            key="heartred"
+            twoToneColor={eb2f96}
+            onClick={onToggleLiked}
+          />
+        ) : (
+          <HeartOutlined key="heart" />
+        ),
         <MessageOutlined key="message" />,
         <Popover
           key="more"
@@ -62,34 +65,31 @@ const onToggleComment = useCallback(()=>{
 
     {commentFormOpened && (
       <div>
-     <CommentForm post={post} /> 
-     <List
-     header={
-     ` ${post.Comments.length}개의 댓글`}
-     itemLayout="horizontal"
-     dataSource={post.Comments}
-renderItem={(item)=>(
-  <li> <Comment
-  author={item.User.nickname}
-
-  avatar={<Avatar>{item.User.nickname[0]}</Avatar>}
-  
-  content={item.content}>
-    </Comment></li>
-)}
-></List>
-    
+        <CommentForm post={post} />
+        <List
+          header={` ${post.Comments.length}개의 댓글`}
+          itemLayout="horizontal"
+          dataSource={post.Comments}
+          renderItem={(item) => (
+            <li>
+              {" "}
+              <Comment
+                author={item.User.nickname}
+                avatar={<Avatar>{item.User.nickname[0]}</Avatar>}
+                content={item.content}
+              ></Comment>
+            </li>
+          )}
+        ></List>
       </div>
-   
-     )}
-   
+    )}
   </div>;
 };
 
-PostCard.PropTypes={
+PostCard.PropTypes = {
   post: PropTypes.shape({
-    id:PropTypes.number,
-    User:PropTypes.object
-  })
-}
+    id: PropTypes.number,
+    User: PropTypes.object,
+  }),
+};
 export default PostCard;
