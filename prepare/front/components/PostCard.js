@@ -12,6 +12,7 @@ import ButtonGroup from "antd/lib/button/button-group";
 import { useCallback, useState } from "react";
 import { useSelector } from "react-redux";
 const PostCard = ({ post }) => {
+  console.log(post.Images, "포스트의 이미지");
   // 옵셔널 체이닝 연산자
   const id = useSelector((state) => state.user?.me?.id);
   const [liked, setLiked] = useState(false);
@@ -27,7 +28,7 @@ const PostCard = ({ post }) => {
   return (
     <div style={{ marginBottom: 20 }}>
       <Card
-        cover={post.Images[0] && <PostImages images={post.Image} />}
+        cover={post.Images[0] && <PostImages images={post.Images} />}
         actions={[
           <RetweetOutlined key="retweet" />,
           liked ? (

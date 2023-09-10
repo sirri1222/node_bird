@@ -8,12 +8,10 @@ const Home = () => {
   const { mainPosts } = useSelector((state) => state.post);
   return (
     <AppLayout>
-      <div>
-        {isLoggedIn && <PostForm />}
-        {mainPosts.map((post) => (
-          <PostCard key={post.id} post={post} />
-        ))}
-      </div>
+      {isLoggedIn && <PostForm />}
+      {mainPosts.map((post) => (
+        <PostCard key={post.id} post={post} />
+      ))}
     </AppLayout>
   );
 };
