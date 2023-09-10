@@ -42,6 +42,8 @@ const reducer = (state = initialState, action) => {
         isLoggedIn: false,
         me: null,
       };
+      default:
+        return state;
   }
 };
 

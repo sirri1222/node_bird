@@ -39,3 +39,4 @@ ImageZoom.propTypes = {
   onClose: PropsTypes.func.isRequired,
 };
 export default ImageZoom;
+

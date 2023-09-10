@@ -1,5 +1,5 @@
 const initialState = {
-  post: {
+ 
     mainPosts: [
       {
         id: 1,
@@ -35,10 +35,13 @@ const initialState = {
 
     imagePaths: [],
     postAdded: false,
-  },
-};
+  };
+// 게시글 작성 액션 
 const ADD_POST = "ADD_POST";
 
+export const addPost = {
+  type: ADD_POST,
+};
 const dummyPost = {
   id: 2,
   content: "더미데이터입니다.",
@@ -50,9 +53,6 @@ const dummyPost = {
   Comments: [],
 };
 
-export const addPost = {
-  type: ADD_POST,
-};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {

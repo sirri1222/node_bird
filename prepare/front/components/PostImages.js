@@ -8,12 +8,11 @@ const PostImages = ({ images }) => {
       <>
         <img
           role="presentation"
-         
           src={images[0].src}
           alt={images[0].src}
           onClick={onZoom}
         ></img>
-        {showImageZoom && <ImageZoom images={images} onClose={} />}
+        {showImageZoom && <ImageZoom images={images} />}
       </>
     );
   }
@@ -37,21 +36,18 @@ const PostImages = ({ images }) => {
       </>
     );
   }
-  return(
+  return (
     <div>
-       <img
-          role="presentation"
-          style={{ width: "50%", textAlign:'center', verticalAlign:'middle' }}
-          src={images[0].src}
-          alt={images[0].src}
-          onClick={onZoom}
-        ></img>
-
-        <PlusOutlined />
-        {images.length -1}개의 사진 더보기
+      <img
+        role="presentation"
+        style={{ width: "50%", textAlign: "center", verticalAlign: "middle" }}
+        src={images[0].src}
+        alt={images[0].src}
+        onClick={onZoom}
+      ></img>
+      <PlusOutlined />
+      {images.length - 1}개의 사진 더보기
     </div>
   );
-
-  
 };
 export default PostImages;
